@@ -11,9 +11,9 @@ const App: React.FC = () => {
   return (
     <main>
       <Routes>
+        <Route path="/register" element={<Register />} />
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
-          <Route path="/register" element={<Register />} />
           <Route path="/installer" element={<Installer />} />
           <Route path="/hardware-provider" element={<HardwareProvider />} />
           <Route path="/customer" element={<Customer />} />
