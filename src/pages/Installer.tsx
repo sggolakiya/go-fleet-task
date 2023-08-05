@@ -121,6 +121,8 @@ const Installer: React.FC = () => {
             )}
           </>
         )
+      default:
+        return null
     }
   }
 
