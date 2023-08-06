@@ -3,9 +3,28 @@
 @tailwind utilities;
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Heebo', sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+@layer base {
+  .side-link-active {
+    @apply flex items-center gap-3 px-5 py-3 bg-primary-light text-primary text-sm font-medium rounded-lg;
+  }
+  .side-link-pending {
+    @apply flex items-center gap-3 px-5 py-3 bg-transparent text-black-400 text-sm;
+  }
+}
+
+.hide-scrollbar::-webkit-scrollbar-thumb {
+  display: none;
+}
+.hide-scrollbar::-webkit-scrollbar-track {
+  display: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
 }

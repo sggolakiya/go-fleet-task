@@ -1,213 +1,152 @@
 import React, { useState } from 'react'
-import LoginBanner from '@/assets/login-banner.jpeg'
-import Logo from '@/assets/logo.png'
 import { RadioGroup } from '@headlessui/react'
-import { CheckCircleIcon, UserIcon } from '@heroicons/react/20/solid'
-
-function classNames(...classes: any[]) {
-  return classes.filter(Boolean).join(' ')
-}
+import { CheckCircleIcon } from '@heroicons/react/20/solid'
+import cn from 'classnames'
+import { IUserType } from '@/interface'
+import {
+  CustomerIcon,
+  InstallerIcon,
+  IotVendorIcon,
+} from '@/components/global/icons'
+import { Link } from 'react-router-dom'
+import RegistrationForm from '@/components/RegisterComponents/RegistrationForm'
 
 const Register: React.FC = () => {
-  let userTypes: string[] = ['installer', 'vendor', 'customer']
-  let [selectedUserType, setSelectedUserType] = useState<string>('installer')
-
-  const handleRegistration = (e: any) => {
-    e.preventDefault()
-    if (selectedUserType.toLowerCase() === 'installer') {
-      window.location.pathname = '/installer'
-    }
-    if (selectedUserType.toLowerCase() === 'vendor') {
-      window.location.pathname = '/vendor'
-    }
-    if (selectedUserType.toLowerCase() === 'customer') {
-      window.location.pathname = '/customer'
-    }
-  }
+  const [userTypes, _setUserTypes] = useState<IUserType[]>([
+    {
+      id: 1,
+      icon: () => <InstallerIcon />,
+      userType: 'Installer',
+      numberOfUsers: '100+',
+    },
+    {
+      id: 2,
+      icon: () => <IotVendorIcon />,
+      userType: 'IoT Vendor',
+      numberOfUsers: '100+',
+    },
+    {
+      id: 3,
+      icon: () => <CustomerIcon />,
+      userType: 'Customer',
+      numberOfUsers: '100+',
+    },
+  ])
+  let [selectedUserType, setSelectedUserTypes] = useState<
+    IUserType | undefined
+  >()
+  const [showRegistorForm, setShowRegisterForm] = useState<boolean>(false)
 
   return (
     <>
-      <div className="flex min-h-full h-screen flex-1">
-        <div className="flex flex-1 flex-col justify-center px-4 py-12 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
-          <div className="mx-auto w-full max-w-sm lg:w-96">
-            <div>
-              <img
-                className="h-10 w-auto mx-auto"
-                src={Logo}
-                alt="Your Company"
-              />
-              <h2 className="mt-4 text-2xl font-semibold leading-9 tracking-tight text-gray-900 text-center">
-                Sign in to your account
-              </h2>
-            </div>
-            <div className="relative mb-10 mt-6">
-              <div className="relative">
-                <div
-                  className="absolute inset-0 flex items-center"
-                  aria-hidden="true"
+      <main className="md:h-screen md:py-0 py-10 w-full flex items-center justify-center">
+        <header className="fixed top-0 inset-x-0 h-16 flex items-center md:justify-start justify-center px-[30px] md:shadow-header-shadow">
+          <h1 className="text-primary text-xl font-bold tracking-[0.15px]">
+            IoT <span className="text-title">Install Hub</span>
+          </h1>
+        </header>
+        <div className="md:w-[585px] w-full md:rounded-3xl py-8 md:px-12 px-4 border-card-border-color md:border bg-white">
+          {!showRegistorForm && (
+            <div className="flex flex-wrap bg-white">
+              <div className="w-full text-center mb-3">
+                <h2 className="text-4xl font-bold text-black-900">
+                  Let's Get Started
+                </h2>
+              </div>
+              <div className="w-full text-center mb-8">
+                <span className="text-black-400 text-lg">
+                  Select you type of user
+                </span>
+              </div>
+              <div className="w-full mb-8">
+                <RadioGroup
+                  value={selectedUserType}
+                  onChange={setSelectedUserTypes}
+                  className=""
                 >
-                  <div className="w-full border-t border-gray-200" />
-                </div>
-                <div className="relative flex justify-center font-medium leading-6 mb-6">
-                  <span className="bg-white px-6 text-gray-900">I am a</span>
-                </div>
-              </div>
-              <RadioGroup
-                value={selectedUserType}
-                onChange={setSelectedUserType}
-              >
-                <div className="mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-3 sm:gap-x-4">
-                  {userTypes.map((userType: string, index: number) => (
-                    <RadioGroup.Option
-                      key={`${userType}${index}`}
-                      value={userType}
-                      className={({ active }) =>
-                        classNames(
-                          active
-                            ? 'border-primary ring-2 ring-primary'
-                            : 'border-gray-300',
-                          'relative flex cursor-pointer rounded-lg border bg-white p-4 shadow-sm focus:outline-none',
-                        )
-                      }
-                    >
-                      {({ checked, active }) => (
-                        <>
-                          <span className="flex flex-1">
-                            <span className="flex flex-col">
-                              <RadioGroup.Label
-                                as="span"
-                                className="block text-sm font-medium text-primary"
-                              >
-                                <UserIcon
-                                  fill="none"
-                                  stroke="currentColor"
-                                  className="w-7 h-7"
-                                />
-                              </RadioGroup.Label>
-                              <RadioGroup.Description
-                                as="span"
-                                className="mt-3 flex items-center text-sm text-gray-900 capitalize"
-                              >
-                                {userType}
-                              </RadioGroup.Description>
-                              <RadioGroup.Description
-                                as="span"
-                                className="mt-3 text-xs font-medium text-gray-500"
-                              >
-                                100+ {userType}s
-                              </RadioGroup.Description>
+                  <div className="grid md:grid-cols-3 grid-cols-1 gap-[18px]">
+                    {userTypes.map((type: IUserType) => (
+                      <RadioGroup.Option
+                        key={type.id}
+                        value={type}
+                        className={({ active }) =>
+                          cn(
+                            'relative flex cursor-pointer rounded-2xl border bg-white p-4 shadow-sm focus:outline-none overflow-hidden',
+                            {
+                              'border-primary': active,
+                              'border-card-border-color': !active,
+                            },
+                          )
+                        }
+                      >
+                        {({ checked }) => (
+                          <>
+                            <span className="flex flex-1">
+                              <span className="flex flex-col">
+                                <div className="mb-[15px]">{type.icon()}</div>
+                                <RadioGroup.Label
+                                  as="span"
+                                  className="block text-lg truncate font-bold text-black-900"
+                                >
+                                  {type.userType}
+                                </RadioGroup.Label>
+                                <RadioGroup.Description
+                                  as="span"
+                                  className="text-sm text-black-400 tracking-[0.15px]"
+                                >
+                                  {type.numberOfUsers} {type.userType}
+                                </RadioGroup.Description>
+                              </span>
                             </span>
-                          </span>
-                          <CheckCircleIcon
-                            className={classNames(
-                              !checked ? 'invisible' : '',
-                              'h-5 w-5 text-primary absolute right-2 top-2',
-                            )}
-                            aria-hidden="true"
-                          />
-                          <span
-                            className={classNames(
-                              active ? 'border' : 'border-2',
-                              checked ? 'border-primary' : 'border-transparent',
-                              'pointer-events-none absolute -inset-px rounded-lg',
-                            )}
-                            aria-hidden="true"
-                          />
-                        </>
-                      )}
-                    </RadioGroup.Option>
-                  ))}
-                </div>
-              </RadioGroup>
-            </div>
-            <div>
-              <div>
-                <form className="space-y-6" onSubmit={handleRegistration}>
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium leading-6 text-gray-900"
-                    >
-                      Email address
-                    </label>
-                    <div className="mt-2">
-                      <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        autoComplete="email"
-                        required
-                        className="block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
-                      />
-                    </div>
+                            <CheckCircleIcon
+                              className={cn(
+                                'h-5 w-5 text-primary absolute top-2 transition-all ease-in-out duration-200',
+                                {
+                                  '-right-20': !checked,
+                                  'right-2': checked,
+                                },
+                              )}
+                              aria-hidden="true"
+                            />
+                          </>
+                        )}
+                      </RadioGroup.Option>
+                    ))}
                   </div>
-
-                  <div>
-                    <label
-                      htmlFor="password"
-                      className="block text-sm font-medium leading-6 text-gray-900"
-                    >
-                      Password
-                    </label>
-                    <div className="mt-2">
-                      <input
-                        id="password"
-                        name="password"
-                        type="password"
-                        autoComplete="current-password"
-                        required
-                        className="block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center">
-                      <input
-                        id="remember-me"
-                        name="remember-me"
-                        type="checkbox"
-                        className="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary"
-                      />
-                      <label
-                        htmlFor="remember-me"
-                        className="ml-3 block text-sm leading-6 text-gray-700"
-                      >
-                        Remember me
-                      </label>
-                    </div>
-
-                    <div className="text-sm leading-6">
-                      <a
-                        href="#"
-                        className="font-semibold text-primary hover:text-primary hover:opacity-80"
-                      >
-                        Forgot password?
-                      </a>
-                    </div>
-                  </div>
-
-                  <div>
-                    <button
-                      type="submit"
-                      className="flex w-full justify-center rounded-md bg-primary px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-primary hover:opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-                    >
-                      Sign in
-                    </button>
-                  </div>
-                </form>
+                </RadioGroup>
+              </div>
+              <div className="w-full mb-4">
+                <button
+                  type="button"
+                  className="h-11 disabled:bg-black-100 disabled:text-black-300 w-full flex items-center justify-center font-medium tracking-primary-spacing transition-all ease-in-out duration-200 bg-primary text-white rounded-md"
+                  disabled={!selectedUserType}
+                  onClick={() => setShowRegisterForm(true)}
+                >
+                  {!selectedUserType
+                    ? 'Create Account'
+                    : `Continue as ${selectedUserType.userType}`}
+                </button>
+              </div>
+              <div className="w-full text-center">
+                <p className="text-black tracking-primary-spacing">
+                  have an account?{' '}
+                  <span className="font-medium text-black-900">
+                    <Link to="/sign-in">Login</Link>
+                  </span>
+                </p>
               </div>
             </div>
-          </div>
+          )}
+          {showRegistorForm && (
+            <>
+              <RegistrationForm
+                formType={selectedUserType?.userType}
+                onBackClick={() => setShowRegisterForm(false)}
+              />
+            </>
+          )}
         </div>
-        <div className="relative hidden w-0 flex-1 lg:block">
-          <img
-            className="absolute inset-0 h-full w-full object-cover"
-            src={LoginBanner}
-            alt=""
-          />
-        </div>
-      </div>
+      </main>
     </>
   )
 }

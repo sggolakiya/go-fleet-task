@@ -6,11 +6,26 @@ module.exports = {
   ],
   theme: {
     extend: {
-      fontFamily: {
-        'poppins': ['Poppins', 'sans-serif']
-      },
       colors: {
-        primary: '#59803a'
+        primary: '#4d812e',
+        title: '#111827',
+        'card-border-color': '#d7d8e0',
+        'black-900': '#363744',
+        'black-500': '#6c6e8b',
+        'black-400': '#8a8ca6',
+        'black-300': '#B3B5C6',
+        'black-200': '#d7d8e0',
+        'black-100': '#ededf1',
+        'primary-light': '#eeffe3'
+      },
+      boxShadow: {
+        'header-shadow': '4px 4px 24px 0px rgba(54, 55, 68, 0.04)'
+      },
+      letterSpacing: {
+        'primary-spacing': '0.15px'
+      },
+      fontFamily: {
+        inter: ['Inter', 'sans-serif']
       }
     },
   },

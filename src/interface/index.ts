@@ -1,18 +1,37 @@
-export interface IInstallerProjectRow {
+export interface IUserType {
   id?: string | number
-  projectTitle: string
-  projectStatus: string
-  numberOfVehicles: string | number
-  productsByCamera: string | number
-  productsByGpsTracker: string | number
-  projectLocation: string
-  projectStartDate: string
+  icon: any
+  userType: string
+  numberOfUsers: string | number
 }
 
-export interface IInstallerProductRow {
+export interface IInstallerForm {
+  companyName?: string
+  companyAddress?: string
+  installManagerContactName?: string
+  phoneNumber?: string
+  email?: string
+  billingEmail?: string
+  projectsWithProductsFor?: string
+  certifyInsurance?: boolean
+}
+
+export interface ICustomerForm {
+  companyName?: string
+  companyAddress?: string
+  fleetProjectManagerContact?: string
+  serviceCoordinatorContact?: string
+}
+
+export interface IIotVendorForm {
+  companyName?: string
+  companyAddress?: string
+  productManager?: string
+}
+
+export interface IProjectTabs {
   id?: string | number
-  productInstructions: string[]
-  productVideo: {
-    __html: any
-  }
+  name: string
+  active?: boolean
+  count?: string | number
 }
