@@ -58,6 +58,12 @@ const RegistrationForm: React.FC<Props> = ({
     window.location.pathname = '/iot-vendor/our-products'
   }
 
+  const handleCustomerFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    localStorage.setItem('userType', 'customer')
+    window.location.pathname = '/customer/projects'
+  }
+
   return (
     <>
       {formType.toLowerCase() === 'installer' && (
@@ -246,7 +252,7 @@ const RegistrationForm: React.FC<Props> = ({
         </form>
       )}
       {formType.toLowerCase() === 'customer' && (
-        <form>
+        <form onSubmit={handleCustomerFormSubmit}>
           <div className="flex flex-wrap">
             <div className="w-full md:text-left text-center mb-6">
               <h2 className="md:text-4xl text-[30px] text-black-900 font-bold capitalize">
