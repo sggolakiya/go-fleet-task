@@ -35,3 +35,23 @@ export interface IProjectTabs {
   active?: boolean
   count?: string | number
 }
+
+export interface IAssetListTable {
+  assetName: string
+  plate: string
+  driver: string
+  products: string
+  status: string
+  action: {
+    text: string
+    callbackFunction?: () => void
+  }
+}
+
+export interface IAssetListFields {
+  id?: string | number
+  vehicleType?: string
+  quantity?: string
+  pricePerVehicles?: string
+  subTotal?: string
+}

@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react'
-import { Outlet } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 import { Dialog, Transition } from '@headlessui/react'
 import cn from 'classnames'
 import { NavLink } from 'react-router-dom'
@@ -8,12 +8,13 @@ import { XMarkIcon } from '@heroicons/react/20/solid'
 import { useLocation } from 'react-router-dom'
 import { Bars3Icon, MagnifyingGlassIcon } from '@heroicons/react/20/solid'
 import { ChevronDownIcon } from '@/components/global/icons'
+import PrimaryBtn from '@/components/global/PrimaryBtn'
 
 type Props = {
   hasNavbar?: boolean
 }
 
-const IotVendorLayout: React.FC<Props> = ({ hasNavbar = true }) => {
+const CustomerLayout: React.FC<Props> = ({ hasNavbar = true }) => {
   const router = useLocation()
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
@@ -89,7 +90,7 @@ const IotVendorLayout: React.FC<Props> = ({ hasNavbar = true }) => {
                       <div className="w-full mb-36">
                         <div>
                           <NavLink
-                            to="/iot-vendor/our-products"
+                            to="/customer/projects"
                             className={({ isActive }) =>
                               isActive
                                 ? 'side-link-active'
@@ -97,7 +98,7 @@ const IotVendorLayout: React.FC<Props> = ({ hasNavbar = true }) => {
                             }
                           >
                             <HomeIcon />
-                            <span>Products</span>
+                            <span>Projects</span>
                           </NavLink>
                         </div>
                       </div>
@@ -158,13 +159,13 @@ const IotVendorLayout: React.FC<Props> = ({ hasNavbar = true }) => {
               <div className="w-full mb-36">
                 <div>
                   <NavLink
-                    to="/iot-vendor/our-products"
+                    to="/customer/projects"
                     className={({ isActive }) =>
                       isActive ? 'side-link-active' : 'side-link-pending'
                     }
                   >
                     <HomeIcon />
-                    <span>Products</span>
+                    <span>Projects</span>
                   </NavLink>
                 </div>
               </div>
@@ -221,10 +222,10 @@ const IotVendorLayout: React.FC<Props> = ({ hasNavbar = true }) => {
                   <Bars3Icon className="h-6 w-6" aria-hidden="true" />
                 </button>
                 <h2 className="text-xl font-bold tracking-primary-spacing text-gray-900 lg:block hidden capitalize">
-                  {router.pathname.includes('/our-products')
-                    ? 'Our Products'
+                  {router.pathname.includes('/projects')
+                    ? 'My Projects'
                     : router.pathname
-                        .split('/iot-vendor/')
+                        .split('/customer/')
                         .join(' ')
                         .split('-')
                         .join(' ')}
@@ -254,12 +255,9 @@ const IotVendorLayout: React.FC<Props> = ({ hasNavbar = true }) => {
                   </button>
                 </div>
                 <div className="lg:block hidden">
-                  <button
-                    type="button"
-                    className="px-4 py-2.5 rounded-lg bg-primary text-sm font-medium text-white tracking-[0.1px]"
-                  >
-                    Add New Product
-                  </button>
+                  <Link to="/customer/projects/create-project">
+                    <PrimaryBtn text="Create New Project" />
+                  </Link>
                 </div>
               </div>
             </div>
@@ -273,4 +271,4 @@ const IotVendorLayout: React.FC<Props> = ({ hasNavbar = true }) => {
   )
 }
 
-export default IotVendorLayout
+export default CustomerLayout

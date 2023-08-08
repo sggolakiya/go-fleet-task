@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react'
-import { Outlet } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 import { Dialog, Transition } from '@headlessui/react'
 import cn from 'classnames'
 import { NavLink } from 'react-router-dom'
@@ -14,6 +14,7 @@ import { XMarkIcon } from '@heroicons/react/20/solid'
 import { useLocation } from 'react-router-dom'
 import { Bars3Icon, MagnifyingGlassIcon } from '@heroicons/react/20/solid'
 import { ChevronDownIcon } from '@/components/global/icons'
+import ActionBtn from '@/components/global/ActionBtn'
 
 const Layout: React.FC = () => {
   const router = useLocation()
@@ -26,12 +27,14 @@ const Layout: React.FC = () => {
     ) {
       return (
         <div className="lg:block hidden">
-          <button
-            type="button"
+          <Link
+            to="/installer/projects/create-project"
             className="px-4 py-2.5 rounded-lg bg-primary text-sm font-medium text-white tracking-[0.1px]"
           >
-            Create New Project
-          </button>
+            {router.pathname.includes('/projects')
+              ? 'Create New Project'
+              : 'Add Installer'}
+          </Link>
         </div>
       )
     } else return null
@@ -39,7 +42,7 @@ const Layout: React.FC = () => {
 
   return (
     <>
-      <div className="bg-[#f7f7f9] h-screen">
+      <div className="bg-[#f7f7f9] min-h-screen pb-8">
         <Transition.Root show={sidebarOpen} as={Fragment}>
           <Dialog
             as="div"
@@ -293,8 +296,17 @@ const Layout: React.FC = () => {
           </aside>
         </div>
 
-        <div className="lg:pl-[240px]">
-          <nav className="px-5 lg:pt-10 pt-6 lg:pb-8 pb-6 sticky top-0 z-40 bg-white">
+        <div className="lg:pl-[272px] lg:pr-6 lg:pt-6">
+          <nav
+            className={cn(
+              'px-5 lg:pt-10 pt-6 lg:pb-8 pb-6 sticky top-0 z-40 bg-white',
+              {
+                'lg:hidden block':
+                  router.pathname.includes('create-project') ||
+                  router.pathname.includes('add-bid'),
+              },
+            )}
+          >
             <div className="flex justify-between items-center gap-4">
               <div>
                 <button
@@ -315,9 +327,9 @@ const Layout: React.FC = () => {
                         .join(' ')}
                 </h2>
               </div>
-              <div className="flex gap-3 items-center">
-                <div>
-                  <div className="relative flex gap-2 sm:w-[332px] border-b border-b-black-100">
+              <div className="flex sm:flex-none flex-1 gap-3 items-center">
+                <div className="sm:w-auto w-full">
+                  <div className="relative flex gap-2 sm:w-[332px] w-full border-b border-b-black-100">
                     <MagnifyingGlassIcon
                       className="pointer-events-none w-5 text-gray-400"
                       aria-hidden="true"
@@ -329,15 +341,13 @@ const Layout: React.FC = () => {
                     />
                   </div>
                 </div>
-                {router.pathname === '/projects' && (
+                {router.pathname.includes('/projects') && (
                   <div>
-                    <button
-                      type="button"
-                      className="md:px-3 px-2 py-2 flex gap-2 items-center text-sm text-black-900 font-medium tracking-[0.1px] rounded-lg border border-black-100 shadow-sm bg-white truncate"
-                    >
-                      <span>Sort by</span>
-                      <ChevronDownIcon />
-                    </button>
+                    <ActionBtn
+                      text="Sort By"
+                      hasIcon
+                      icon={<ChevronDownIcon />}
+                    />
                   </div>
                 )}
                 {toggleCreateProjectBtn()}

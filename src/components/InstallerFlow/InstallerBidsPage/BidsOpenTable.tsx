@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const BidsOpenTable: React.FC = () => {
   return (
@@ -69,12 +70,11 @@ const BidsOpenTable: React.FC = () => {
                   </span>
                 </td>
                 <td className="py-4 whitespace-nowrap">
-                  <button
-                    type="button"
-                    className="px-4 py-2 bg-white border border-black-300 rounded-lg shadow-sm text-sm font-medium tracking-[0.1px]"
-                  >
-                    Add Bid
-                  </button>
+                  <Link to="/installer/bids/add-bid">
+                    <span className="px-4 py-2 bg-white border border-black-300 rounded-lg shadow-sm text-sm font-medium tracking-[0.1px]">
+                      Add Bid
+                    </span>
+                  </Link>
                 </td>
               </tr>
               <tr>
@@ -105,12 +105,11 @@ const BidsOpenTable: React.FC = () => {
                   </span>
                 </td>
                 <td className="py-4 whitespace-nowrap">
-                  <button
-                    type="button"
-                    className="px-4 py-2 bg-white border border-black-300 rounded-lg shadow-sm text-sm font-medium tracking-[0.1px]"
-                  >
-                    Add Bid
-                  </button>
+                  <Link to="/installer/bids/add-bid">
+                    <span className="px-4 py-2 bg-white border border-black-300 rounded-lg shadow-sm text-sm font-medium tracking-[0.1px]">
+                      Add Bid
+                    </span>
+                  </Link>
                 </td>
               </tr>
             </tbody>

@@ -39,8 +39,8 @@ const Register: React.FC = () => {
 
   return (
     <>
-      <main className="md:h-screen md:py-0 py-10 w-full flex items-center justify-center">
-        <header className="fixed top-0 inset-x-0 h-16 flex items-center md:justify-start justify-center px-[30px] md:shadow-header-shadow">
+      <main className="md:min-h-screen md:py-32 py-10 w-full flex items-center justify-center">
+        <header className="fixed top-0 inset-x-0 h-16 flex items-center md:justify-start justify-center px-[30px] md:shadow-header-shadow z-50 bg-white">
           <h1 className="text-primary text-xl font-bold tracking-[0.15px]">
             IoT <span className="text-title">Install Hub</span>
           </h1>

@@ -1,7 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
-const ActiveProductsTable: React.FC = () => {
+const ForAwardTable: React.FC = () => {
   return (
     <div className="overflow-x-auto">
       <div className="md:block inline-block">
@@ -12,47 +11,37 @@ const ActiveProductsTable: React.FC = () => {
                 scope="col"
                 className="p-4 text-xs font-semibold uppercase text-[#6b7280] font-inter whitespace-nowrap"
               >
-                picture
+                project
               </th>
               <th
                 scope="col"
                 className="p-4 text-xs font-semibold uppercase text-[#6b7280] font-inter whitespace-nowrap"
               >
-                product name
+                total assets
               </th>
               <th
                 scope="col"
                 className="p-4 text-xs font-semibold uppercase text-[#6b7280] font-inter whitespace-nowrap"
               >
-                average install time
+                start date
               </th>
               <th
                 scope="col"
                 className="p-4 text-xs font-semibold uppercase text-[#6b7280] font-inter whitespace-nowrap"
               >
-                install count
+                assigned
               </th>
               <th
                 scope="col"
                 className="text-xs font-semibold uppercase text-[#6b7280] font-inter whitespace-nowrap"
               >
-                manage
+                progress
               </th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200 bg-white">
             <tr>
               <td className="p-4 whitespace-nowrap">
-                <div className="flex -space-x-3">
-                  <div className="z-10">
-                    <img src="/avatar.png" alt="assignee" />
-                  </div>
-                  <div>
-                    <img src="/avatar-2.png" alt="assignee" />
-                  </div>
-                </div>
-              </td>
-              <td className="p-4 whitespace-nowrap">
                 <span className="block text-sm font-inter font-bold text-gray-900">
                   Nevada Phase 2
                 </span>
@@ -64,23 +53,57 @@ const ActiveProductsTable: React.FC = () => {
                 <span className="block text-sm font-inter text-gray-900">
                   44 Assets
                 </span>
+                <span className="text-sm font-inter text-gray-500 truncate">
+                  44 Cameras, 12 GPS. 5 Routers
+                </span>
               </td>
               <td className="p-4 whitespace-nowrap">
                 <span className="text-sm font-inter text-gray-500 truncate">
                   Apr 23, 2021
                 </span>
               </td>
+              <td className="p-4 whitespace-nowrap">
+                <div className="flex -space-x-3">
+                  <div className="z-10">
+                    <img src="/avatar.png" alt="assignee" />
+                  </div>
+                  <div>
+                    <img src="/avatar-2.png" alt="assignee" />
+                  </div>
+                </div>
+              </td>
               <td className="py-4 whitespace-nowrap">
-                <Link
-                  to={`/iot-vendor/our-products/nevada-phase-2`}
+                <button
+                  type="button"
                   className="px-4 py-2 bg-white border border-black-300 rounded-lg shadow-sm text-sm font-medium tracking-[0.1px]"
                 >
-                  Manage Product
-                </Link>
+                  Manage Project
+                </button>
               </td>
             </tr>
             <tr>
               <td className="p-4 whitespace-nowrap">
+                <span className="block text-sm font-inter font-bold text-gray-900">
+                  Nevada Phase 3
+                </span>
+                <span className="text-sm font-inter text-gray-500">
+                  Las Vegas, Nevada
+                </span>
+              </td>
+              <td className="p-4 whitespace-nowrap">
+                <span className="block text-sm font-inter text-gray-900">
+                  44 Assets
+                </span>
+                <span className="text-sm font-inter text-gray-500 truncate">
+                  44 Cameras, 12 GPS. 5 Routers
+                </span>
+              </td>
+              <td className="p-4 whitespace-nowrap">
+                <span className="text-sm font-inter text-gray-500 truncate">
+                  Apr 23, 2021
+                </span>
+              </td>
+              <td className="p-4 whitespace-nowrap">
                 <div className="flex -space-x-3">
                   <div className="z-10">
                     <img src="/avatar.png" alt="assignee" />
@@ -90,35 +113,38 @@ const ActiveProductsTable: React.FC = () => {
                   </div>
                 </div>
               </td>
-              <td className="p-4 whitespace-nowrap">
-                <span className="block text-sm font-inter font-bold text-gray-900">
-                  Nevada Phase 2
-                </span>
-                <span className="text-sm font-inter text-gray-500">
-                  Reno, Nevada
-                </span>
-              </td>
-              <td className="p-4 whitespace-nowrap">
-                <span className="block text-sm font-inter text-gray-900">
-                  44 Assets
-                </span>
-              </td>
-              <td className="p-4 whitespace-nowrap">
-                <span className="text-sm font-inter text-gray-500 truncate">
-                  Apr 23, 2021
-                </span>
-              </td>
               <td className="py-4 whitespace-nowrap">
-                <Link
-                  to={`/iot-vendor/our-products/nevada-phase-3`}
+                <button
+                  type="button"
                   className="px-4 py-2 bg-white border border-black-300 rounded-lg shadow-sm text-sm font-medium tracking-[0.1px]"
                 >
-                  Manage Product
-                </Link>
+                  Manage Project
+                </button>
               </td>
             </tr>
             <tr>
               <td className="p-4 whitespace-nowrap">
+                <span className="block text-sm font-inter font-bold text-gray-900">
+                  Nevada Phase 3
+                </span>
+                <span className="text-sm font-inter text-gray-500">
+                  Las Vegas, Nevada
+                </span>
+              </td>
+              <td className="p-4 whitespace-nowrap">
+                <span className="block text-sm font-inter text-gray-900">
+                  44 Assets
+                </span>
+                <span className="text-sm font-inter text-gray-500 truncate">
+                  44 Cameras, 12 GPS. 5 Routers
+                </span>
+              </td>
+              <td className="p-4 whitespace-nowrap">
+                <span className="text-sm font-inter text-gray-500 truncate">
+                  Apr 23, 2021
+                </span>
+              </td>
+              <td className="p-4 whitespace-nowrap">
                 <div className="flex -space-x-3">
                   <div className="z-10">
                     <img src="/avatar.png" alt="assignee" />
@@ -128,55 +154,30 @@ const ActiveProductsTable: React.FC = () => {
                   </div>
                 </div>
               </td>
-              <td className="p-4 whitespace-nowrap">
-                <span className="block text-sm font-inter font-bold text-gray-900">
-                  Nevada Phase 2
-                </span>
-                <span className="text-sm font-inter text-gray-500">
-                  Reno, Nevada
-                </span>
-              </td>
-              <td className="p-4 whitespace-nowrap">
-                <span className="block text-sm font-inter text-gray-900">
-                  44 Assets
-                </span>
-              </td>
-              <td className="p-4 whitespace-nowrap">
-                <span className="text-sm font-inter text-gray-500 truncate">
-                  Apr 23, 2021
-                </span>
-              </td>
               <td className="py-4 whitespace-nowrap">
-                <Link
-                  to={`/iot-vendor/our-products/nevada-phase-4`}
+                <button
+                  type="button"
                   className="px-4 py-2 bg-white border border-black-300 rounded-lg shadow-sm text-sm font-medium tracking-[0.1px]"
                 >
-                  Manage Product
-                </Link>
+                  Manage Project
+                </button>
               </td>
             </tr>
             <tr>
               <td className="p-4 whitespace-nowrap">
-                <div className="flex -space-x-3">
-                  <div className="z-10">
-                    <img src="/avatar.png" alt="assignee" />
-                  </div>
-                  <div>
-                    <img src="/avatar-2.png" alt="assignee" />
-                  </div>
-                </div>
-              </td>
-              <td className="p-4 whitespace-nowrap">
                 <span className="block text-sm font-inter font-bold text-gray-900">
-                  Nevada Phase 2
+                  Nevada Phase 3
                 </span>
                 <span className="text-sm font-inter text-gray-500">
-                  Reno, Nevada
+                  Las Vegas, Nevada
                 </span>
               </td>
               <td className="p-4 whitespace-nowrap">
                 <span className="block text-sm font-inter text-gray-900">
                   44 Assets
+                </span>
+                <span className="text-sm font-inter text-gray-500 truncate">
+                  44 Cameras, 12 GPS. 5 Routers
                 </span>
               </td>
               <td className="p-4 whitespace-nowrap">
@@ -184,16 +185,6 @@ const ActiveProductsTable: React.FC = () => {
                   Apr 23, 2021
                 </span>
               </td>
-              <td className="py-4 whitespace-nowrap">
-                <Link
-                  to={`/iot-vendor/our-products/nevada-phase-5`}
-                  className="px-4 py-2 bg-white border border-black-300 rounded-lg shadow-sm text-sm font-medium tracking-[0.1px]"
-                >
-                  Manage Product
-                </Link>
-              </td>
-            </tr>
-            <tr>
               <td className="p-4 whitespace-nowrap">
                 <div className="flex -space-x-3">
                   <div className="z-10">
@@ -204,31 +195,13 @@ const ActiveProductsTable: React.FC = () => {
                   </div>
                 </div>
               </td>
-              <td className="p-4 whitespace-nowrap">
-                <span className="block text-sm font-inter font-bold text-gray-900">
-                  Nevada Phase 2
-                </span>
-                <span className="text-sm font-inter text-gray-500">
-                  Reno, Nevada
-                </span>
-              </td>
-              <td className="p-4 whitespace-nowrap">
-                <span className="block text-sm font-inter text-gray-900">
-                  44 Assets
-                </span>
-              </td>
-              <td className="p-4 whitespace-nowrap">
-                <span className="text-sm font-inter text-gray-500 truncate">
-                  Apr 23, 2021
-                </span>
-              </td>
               <td className="py-4 whitespace-nowrap">
-                <Link
-                  to={`/iot-vendor/our-products/nevada-phase-6`}
+                <button
+                  type="button"
                   className="px-4 py-2 bg-white border border-black-300 rounded-lg shadow-sm text-sm font-medium tracking-[0.1px]"
                 >
-                  Manage Product
-                </Link>
+                  Manage Project
+                </button>
               </td>
             </tr>
           </tbody>
@@ -238,4 +211,4 @@ const ActiveProductsTable: React.FC = () => {
   )
 }
 
-export default ActiveProductsTable
+export default ForAwardTable

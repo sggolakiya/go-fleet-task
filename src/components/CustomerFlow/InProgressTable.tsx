@@ -1,7 +1,7 @@
+import ActionBtn from '@/components/global/ActionBtn'
 import React from 'react'
-import { Link } from 'react-router-dom'
 
-const ActiveProductsTable: React.FC = () => {
+const InProgressTable: React.FC = () => {
   return (
     <div className="overflow-x-auto">
       <div className="md:block inline-block">
@@ -12,47 +12,37 @@ const ActiveProductsTable: React.FC = () => {
                 scope="col"
                 className="p-4 text-xs font-semibold uppercase text-[#6b7280] font-inter whitespace-nowrap"
               >
-                picture
+                project
               </th>
               <th
                 scope="col"
                 className="p-4 text-xs font-semibold uppercase text-[#6b7280] font-inter whitespace-nowrap"
               >
-                product name
+                timeline
               </th>
               <th
                 scope="col"
                 className="p-4 text-xs font-semibold uppercase text-[#6b7280] font-inter whitespace-nowrap"
               >
-                average install time
+                progress
               </th>
               <th
                 scope="col"
                 className="p-4 text-xs font-semibold uppercase text-[#6b7280] font-inter whitespace-nowrap"
               >
-                install count
+                comments
               </th>
               <th
                 scope="col"
                 className="text-xs font-semibold uppercase text-[#6b7280] font-inter whitespace-nowrap"
               >
-                manage
+                action
               </th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200 bg-white">
             <tr>
               <td className="p-4 whitespace-nowrap">
-                <div className="flex -space-x-3">
-                  <div className="z-10">
-                    <img src="/avatar.png" alt="assignee" />
-                  </div>
-                  <div>
-                    <img src="/avatar-2.png" alt="assignee" />
-                  </div>
-                </div>
-              </td>
-              <td className="p-4 whitespace-nowrap">
                 <span className="block text-sm font-inter font-bold text-gray-900">
                   Nevada Phase 2
                 </span>
@@ -62,37 +52,33 @@ const ActiveProductsTable: React.FC = () => {
               </td>
               <td className="p-4 whitespace-nowrap">
                 <span className="block text-sm font-inter text-gray-900">
-                  44 Assets
+                  5 Days
+                </span>
+                <span className="text-sm font-inter text-gray-500 truncate">
+                  April 23, 2021
+                </span>
+              </td>
+              <td className="p-4 whitespace-nowrap">
+                <span className="block text-sm font-inter text-gray-900">
+                  4 of 55
+                </span>
+                <span className="text-sm font-inter text-gray-500 truncate">
+                  Assets Complete
                 </span>
               </td>
               <td className="p-4 whitespace-nowrap">
                 <span className="text-sm font-inter text-gray-500 truncate">
-                  Apr 23, 2021
+                  5 open
                 </span>
               </td>
               <td className="py-4 whitespace-nowrap">
-                <Link
-                  to={`/iot-vendor/our-products/nevada-phase-2`}
-                  className="px-4 py-2 bg-white border border-black-300 rounded-lg shadow-sm text-sm font-medium tracking-[0.1px]"
-                >
-                  Manage Product
-                </Link>
+                <ActionBtn text="Manage Project" className="border-black-300" />
               </td>
             </tr>
             <tr>
               <td className="p-4 whitespace-nowrap">
-                <div className="flex -space-x-3">
-                  <div className="z-10">
-                    <img src="/avatar.png" alt="assignee" />
-                  </div>
-                  <div>
-                    <img src="/avatar-2.png" alt="assignee" />
-                  </div>
-                </div>
-              </td>
-              <td className="p-4 whitespace-nowrap">
                 <span className="block text-sm font-inter font-bold text-gray-900">
-                  Nevada Phase 2
+                  Nevada Phase 3
                 </span>
                 <span className="text-sm font-inter text-gray-500">
                   Reno, Nevada
@@ -100,35 +86,31 @@ const ActiveProductsTable: React.FC = () => {
               </td>
               <td className="p-4 whitespace-nowrap">
                 <span className="block text-sm font-inter text-gray-900">
-                  44 Assets
+                  200 Days
+                </span>
+                <span className="text-sm font-inter text-gray-500 truncate">
+                  April 24, 2021
+                </span>
+              </td>
+              <td className="p-4 whitespace-nowrap">
+                <span className="block text-sm font-inter text-gray-900">
+                  4 of 55
+                </span>
+                <span className="text-sm font-inter text-gray-500 truncate">
+                  Assets Complete
                 </span>
               </td>
               <td className="p-4 whitespace-nowrap">
                 <span className="text-sm font-inter text-gray-500 truncate">
-                  Apr 23, 2021
+                  4 open
                 </span>
               </td>
               <td className="py-4 whitespace-nowrap">
-                <Link
-                  to={`/iot-vendor/our-products/nevada-phase-3`}
-                  className="px-4 py-2 bg-white border border-black-300 rounded-lg shadow-sm text-sm font-medium tracking-[0.1px]"
-                >
-                  Manage Product
-                </Link>
+                <ActionBtn text="Manage Project" className="border-black-300" />
               </td>
             </tr>
             <tr>
               <td className="p-4 whitespace-nowrap">
-                <div className="flex -space-x-3">
-                  <div className="z-10">
-                    <img src="/avatar.png" alt="assignee" />
-                  </div>
-                  <div>
-                    <img src="/avatar-2.png" alt="assignee" />
-                  </div>
-                </div>
-              </td>
-              <td className="p-4 whitespace-nowrap">
                 <span className="block text-sm font-inter font-bold text-gray-900">
                   Nevada Phase 2
                 </span>
@@ -138,37 +120,33 @@ const ActiveProductsTable: React.FC = () => {
               </td>
               <td className="p-4 whitespace-nowrap">
                 <span className="block text-sm font-inter text-gray-900">
-                  44 Assets
+                  5 Days
+                </span>
+                <span className="text-sm font-inter text-gray-500 truncate">
+                  April 23, 2021
+                </span>
+              </td>
+              <td className="p-4 whitespace-nowrap">
+                <span className="block text-sm font-inter text-gray-900">
+                  4 of 55
+                </span>
+                <span className="text-sm font-inter text-gray-500 truncate">
+                  Assets Complete
                 </span>
               </td>
               <td className="p-4 whitespace-nowrap">
                 <span className="text-sm font-inter text-gray-500 truncate">
-                  Apr 23, 2021
+                  5 open
                 </span>
               </td>
               <td className="py-4 whitespace-nowrap">
-                <Link
-                  to={`/iot-vendor/our-products/nevada-phase-4`}
-                  className="px-4 py-2 bg-white border border-black-300 rounded-lg shadow-sm text-sm font-medium tracking-[0.1px]"
-                >
-                  Manage Product
-                </Link>
+                <ActionBtn text="Manage Project" className="border-black-300" />
               </td>
             </tr>
             <tr>
               <td className="p-4 whitespace-nowrap">
-                <div className="flex -space-x-3">
-                  <div className="z-10">
-                    <img src="/avatar.png" alt="assignee" />
-                  </div>
-                  <div>
-                    <img src="/avatar-2.png" alt="assignee" />
-                  </div>
-                </div>
-              </td>
-              <td className="p-4 whitespace-nowrap">
                 <span className="block text-sm font-inter font-bold text-gray-900">
-                  Nevada Phase 2
+                  Nevada Phase 3
                 </span>
                 <span className="text-sm font-inter text-gray-500">
                   Reno, Nevada
@@ -176,37 +154,33 @@ const ActiveProductsTable: React.FC = () => {
               </td>
               <td className="p-4 whitespace-nowrap">
                 <span className="block text-sm font-inter text-gray-900">
-                  44 Assets
+                  200 Days
+                </span>
+                <span className="text-sm font-inter text-gray-500 truncate">
+                  April 24, 2021
+                </span>
+              </td>
+              <td className="p-4 whitespace-nowrap">
+                <span className="block text-sm font-inter text-gray-900">
+                  4 of 55
+                </span>
+                <span className="text-sm font-inter text-gray-500 truncate">
+                  Assets Complete
                 </span>
               </td>
               <td className="p-4 whitespace-nowrap">
                 <span className="text-sm font-inter text-gray-500 truncate">
-                  Apr 23, 2021
+                  4 open
                 </span>
               </td>
               <td className="py-4 whitespace-nowrap">
-                <Link
-                  to={`/iot-vendor/our-products/nevada-phase-5`}
-                  className="px-4 py-2 bg-white border border-black-300 rounded-lg shadow-sm text-sm font-medium tracking-[0.1px]"
-                >
-                  Manage Product
-                </Link>
+                <ActionBtn text="Manage Project" className="border-black-300" />
               </td>
             </tr>
             <tr>
               <td className="p-4 whitespace-nowrap">
-                <div className="flex -space-x-3">
-                  <div className="z-10">
-                    <img src="/avatar.png" alt="assignee" />
-                  </div>
-                  <div>
-                    <img src="/avatar-2.png" alt="assignee" />
-                  </div>
-                </div>
-              </td>
-              <td className="p-4 whitespace-nowrap">
                 <span className="block text-sm font-inter font-bold text-gray-900">
-                  Nevada Phase 2
+                  Nevada Phase 3
                 </span>
                 <span className="text-sm font-inter text-gray-500">
                   Reno, Nevada
@@ -214,21 +188,27 @@ const ActiveProductsTable: React.FC = () => {
               </td>
               <td className="p-4 whitespace-nowrap">
                 <span className="block text-sm font-inter text-gray-900">
-                  44 Assets
+                  200 Days
+                </span>
+                <span className="text-sm font-inter text-gray-500 truncate">
+                  April 24, 2021
+                </span>
+              </td>
+              <td className="p-4 whitespace-nowrap">
+                <span className="block text-sm font-inter text-gray-900">
+                  4 of 55
+                </span>
+                <span className="text-sm font-inter text-gray-500 truncate">
+                  Assets Complete
                 </span>
               </td>
               <td className="p-4 whitespace-nowrap">
                 <span className="text-sm font-inter text-gray-500 truncate">
-                  Apr 23, 2021
+                  4 open
                 </span>
               </td>
               <td className="py-4 whitespace-nowrap">
-                <Link
-                  to={`/iot-vendor/our-products/nevada-phase-6`}
-                  className="px-4 py-2 bg-white border border-black-300 rounded-lg shadow-sm text-sm font-medium tracking-[0.1px]"
-                >
-                  Manage Product
-                </Link>
+                <ActionBtn text="Manage Project" className="border-black-300" />
               </td>
             </tr>
           </tbody>
@@ -238,4 +218,4 @@ const ActiveProductsTable: React.FC = () => {
   )
 }
 
-export default ActiveProductsTable
+export default InProgressTable
