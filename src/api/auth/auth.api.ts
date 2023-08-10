@@ -109,11 +109,12 @@ export class AuthApiController extends ApiController {
       }
     });
   }
-  async signUp(userData: any): Promise<string> {
+
+  async signUpCustomer(userData: any): Promise<string> {
     return new Promise(async (resolve, reject) => {
       try {
         const result = await this.post(
-          `${this.urlPath}/new-customer`,
+          `${this.urlPath}/signup/customer`,
           {},
           {},
           userData
